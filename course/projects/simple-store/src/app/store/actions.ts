@@ -1,10 +1,25 @@
-import { Action } from "./store";
-import { Resort } from "./models";
+import { Resort } from './models';
+import { Action } from './store';
+
+export enum SidenavActionTypes {
+  HideSidenav = '[Sidenav] Hide Sidenav',
+  ShowSidenav = '[Sidenav] Show Sidenav'
+}
+
+export class HideSidenav implements Action {
+  readonly type = SidenavActionTypes.HideSidenav;
+}
+
+export class ShowSidenav implements Action {
+  readonly type = SidenavActionTypes.ShowSidenav;
+}
+
+export type SidenavAction = HideSidenav | ShowSidenav;
 
 export enum ResortActions {
-  LoadResorts = "[resort] Load resorts",
-  LoadResortsFail = "[resort] Load resorts fail",
-  LoadResortsSuccess = "[resort] Load resorts success"
+  LoadResorts = '[resorts] Load',
+  LoadResortsFail = '[resorts] Load fail',
+  LoadResortsSuccess = '[resorts] Load success'
 }
 
 export class LoadResorts implements Action {

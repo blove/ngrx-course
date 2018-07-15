@@ -1,15 +1,43 @@
-import { Resort } from "./models";
-import { ResortActions, ResortAction } from "./actions";
-import { State } from "./store";
+import {
+  ResortAction,
+  ResortActions,
+  SidenavAction,
+  SidenavActionTypes
+} from './actions';
+import { State } from './store';
 
-export const initialResortsState = {
+export const initialSidenavState = {
+  opened: false
+};
+
+export const sidenavReducer = (
+  state: State = initialSidenavState,
+  action: SidenavAction
+): State => {
+  switch (action.type) {
+    case SidenavActionTypes.HideSidenav:
+      return {
+        ...state,
+        opened: false
+      };
+    case SidenavActionTypes.ShowSidenav:
+      return {
+        ...state,
+        opened: true
+      };
+    default:
+      return state;
+  }
+};
+
+export const initialResortState = {
   error: null,
   loading: false,
   resorts: []
 };
 
-export const resortsReducer = (
-  state: State = initialResortsState,
+export const resortReducer = (
+  state: State = initialResortState,
   action: ResortAction
 ): State => {
   switch (action.type) {
@@ -35,6 +63,3 @@ export const resortsReducer = (
       return state;
   }
 };
-
-export const allResorts = state => state.resorts;
-export const resortCount = state => state.resorts.length;
