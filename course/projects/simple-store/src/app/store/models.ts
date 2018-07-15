@@ -4,4 +4,5 @@ export interface Resort {
   lat: string;
   lng: string;
   status: string;
+  url: string;
 }
