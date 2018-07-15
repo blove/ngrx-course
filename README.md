@@ -69,5 +69,9 @@ Browse the API at: [https://localhost:3000](https://localhost:3000)
 
 ## Branches
 
-* simple-store
-* simple-store-completed
+* 01-simple-store
+* 01-simple-store-complete
+* 02-store
+* 02-store-complete
+* 03-effects
+* 03-effects-complete
