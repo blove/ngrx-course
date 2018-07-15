@@ -1,6 +1,34 @@
-import { Resort } from "./models";
-import { ResortActions, ResortAction } from "./actions";
+import {
+  ResortActions,
+  ResortAction,
+  SidebarActions,
+  SidebarAction
+} from "./actions";
 import { State } from "./store";
+
+export const initialSidebarState = {
+  hidden: true
+};
+
+export const sidebarReducer = (
+  state: State = initialSidebarState,
+  action: SidebarAction
+): State => {
+  switch (action.type) {
+    case SidebarActions.HideSidebar:
+      return {
+        ...state,
+        hidden: true
+      };
+    case SidebarActions.ShowSidebar:
+      return {
+        ...state,
+        hidden: false
+      };
+    default:
+      return state;
+  }
+};
 
 export const initialResortsState = {
   error: null,
@@ -35,6 +63,3 @@ export const resortsReducer = (
       return state;
   }
 };
-
-export const allResorts = state => state.resorts;
-export const resortCount = state => state.resorts.length;

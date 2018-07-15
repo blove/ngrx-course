@@ -1,0 +1,9 @@
+<div fxFlexFill fxLayout="row">
+  <div class="sidebar" fxFlex="20" [hidden]="sidebarHidden">
+    <h1>Sidebar</h1>
+  </div>
+  <div class="content" fxFlex>
+    <button (click)="showSidebar()">Show Sidebar</button>
+    <button (click)="hideSidebar()">Hide Sidebar</button>
+  </div>
+</div>

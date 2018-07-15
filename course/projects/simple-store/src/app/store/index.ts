@@ -1,8 +1,9 @@
-import { resortsReducer } from "./reducers";
+import { resortsReducer, sidebarReducer } from "./reducers";
 import { ReducerMap, Store } from "./store";
 
 const reducers: ReducerMap = {
-  resorts: resortsReducer
+  resorts: resortsReducer,
+  sidebar: sidebarReducer
 };
 
 export const store = new Store(reducers);
