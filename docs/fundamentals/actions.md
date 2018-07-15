@@ -5,15 +5,15 @@
 
 ## Example Action
 
-```
+```javascript
 {
-  type: '[sidebar] Show'
+  type: '[Sidenav] Show Sidenav'
 }
 ```
 
 ## Example Action with Payload
 
-```
+```javascript
 {
   type: '[user] Add user',
   user: Partial<User>
@@ -24,7 +24,7 @@
 
 While we can create simple object actions, using TypeScript we can create classes that implement the `Actions` interface.
 
-```
+```javascript
 export enum UserActionTypes {
   AddUser: '[user] Add user',
   AddUserFail: '[user] Add user fail',
