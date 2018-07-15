@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayoutAlign="center stretch" class="banner">
+  <div fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="70%" fxFlex.lg="65%" fxFlex.xl="60%">
+    <h1 class="mat-display-1">Favorites</h1>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="center stretch" class="favorites">
+  <div fxFlex.xs="90%" fxFlex.sm="80%" fxFlex.md="70%" fxFlex.lg="65%" fxFlex.xl="60%">
+    <mat-card>
+      <mat-card-content>
+        <app-resort-autocomplete (selected)="onResortSelected($event)"></app-resort-autocomplete>
+        <app-favorites-table [resorts]="resorts | async" (delete)="onDelete($event)"></app-favorites-table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
