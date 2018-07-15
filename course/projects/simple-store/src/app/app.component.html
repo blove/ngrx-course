@@ -1,0 +1,15 @@
+<div fxFlexFill fxLayout="row">
+  <div class="sidenav" fxFlex="20" [hidden]="!sidenavOpened">
+    <h1>Sidenav</h1>
+  </div>
+  <div class="content" fxFlex>
+    <button (click)="showSidenav()">Show Sidenav</button>
+    <button (click)="hideSidenav()">Hide Sidenav</button>
+
+    <ul *ngFor="let resort of this.resorts; trackBy: identifyResort">
+      <li>
+        <a [attr.href]="resort.url" target="_blank">{{resort.name}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
