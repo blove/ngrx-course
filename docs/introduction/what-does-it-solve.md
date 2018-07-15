@@ -22,7 +22,7 @@ One approach to keeping track of all of this "state" is to store the information
 
 *src/app/search.service.ts*
 
-```
+```javascript
 @Injectable({
   providedIn: 'root'
 })
@@ -39,7 +39,7 @@ export class SearchService {
 
 *src/app/app.component.ts*
 
-```
+```javascript
 @Component({
   template: `
     <app-search [filters]="filters" [query]="query" (search)="onSearch($event)"></app-search>

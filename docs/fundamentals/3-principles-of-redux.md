@@ -13,7 +13,7 @@ Redux has 3 core principles:
 * State is stored in the store
 * The store is an object tree
 
-```
+```javascript
 {
   router: {
     state: {
