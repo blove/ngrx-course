@@ -1,21 +1,34 @@
-import { Component, OnInit } from "@angular/core";
-
-import { LoadResorts } from "./store/actions";
-import { Store } from "./store/store";
-import { store } from "./store";
+import { Component, OnInit } from '@angular/core';
+import { Resort } from './store/models';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  store: Store;
+  resorts: Resort[] = [];
+
+  // todo: declare sidenavHidden boolean property
+
+  // todo: define store property
 
   ngOnInit() {
-    this.store = store;
-    const action = new LoadResorts();
-    console.log(action);
-    this.store.dispatch(action);
+    // todo: obtain reference to store instance
+    // todo: dispatch action to load resorts
+    // todo: subscribe to state changes and update resorts and sidenavHidden properties
+    // hint: you may want to log out the state in the subscribe() next notification callback
+  }
+
+  hideSidenav() {
+    // todo: dispatch action to hide sidenav
+  }
+
+  identifyResort(resort: Resort) {
+    return resort.id;
+  }
+
+  showSidenav() {
+    // todo: dispatch action to show sidenav
   }
 }
