@@ -6,7 +6,7 @@
 
 ## Example Reducer
 
-```
+```javascript
 export const userReducer(state = initialState, action: Action): State {
   switch (action.type) {
     case UserActions.AddUserSuccess {
