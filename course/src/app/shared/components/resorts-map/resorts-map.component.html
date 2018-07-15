@@ -1,0 +1,7 @@
+<ngui-map center="Denver, CO" (mapClick)="onMapClick()" (mapReady$)="onMapReady($event)">
+  <marker *ngFor="let marker of markers" [position]="marker.position" [title]="marker.title" (click)="onMarkerClick($event)"
+    (initialized$)="onMarkerInit($event)"></marker>
+  <info-window id="infoWindow">
+    {{title}}
+  </info-window>
+</ngui-map>
