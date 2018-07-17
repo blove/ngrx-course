@@ -59,3 +59,14 @@ export const resortReducer = (
 
 For now, we'll be storing the collection of `resorts` as an array in the state object.
 We'll learn about the performance impact this might have and why we will use a `Dictionary` to store a collection of entities when using the @ngrx/entity library.
+
+## Update `reducers`
+
+Open **src/app/store/index.ts** and specify the new `resort` property in the state object along with the `resortReducer`:
+
+```javascript
+const reducers: ReducerMap = {
+  resort: resortReducer,
+  sidebar: sidebarReducer
+};
+```

@@ -18,3 +18,8 @@
   * [Sidebar reducer](simple-store/reducers-sidebar.md)
   * [Creae Store Instance](simple-store/create-store.md)
   * [Dispatch Actions and Subscribe to State](simple-store/dispatch-and-subscribe.md)
+  * [Resorts JSON Server](simple-store/resorts-json-server.md)
+  * [Resorts Actions](simple-store/resort-actions.md)
+  * [Update Reducer with Resort Actions](simple-store/resort-reducer.md)
+  * [Support Side Effects](simple-store/effects.md)
+  * [Dispatch Resort Actions](simple-store/dispatch-resort-acetions.md)

@@ -55,15 +55,19 @@ Create a new `Store` class:
 
 ```javascript
 export class Store {
-  private subject = new BehaviorSubject<State>(null);
+  private state$ = new BehaviorSubject<State>(null);
 
   constructor(public reducers: ReducerMap, private state: State = {}) {}
 
   dispatch(action: Action) {
+    this.notify(action);
+    this.state$.next(this.state);
+  }
+
+  notify(action: Action) {
     Object.keys(this.reducers).forEach(key => {
       this.state[key] = this.reducers[key](this.state[key], action);
     });
-    this.subject.next(this.state);
   }
 
   subscribe(
@@ -71,12 +75,13 @@ export class Store {
     error?: (error: any) => void,
     complete?: () => void
   ) {
-    return this.subject.subscribe(next, error, complete);
+    return this.state$.subscribe(next, error, complete);
   }
 }
 ```
 
-* The `subject` property is a new `BehaviorSubject` with a seed value of `null`.
+* The `state$` property is a new `Subject` that subscribers can subscribe to.
 * The `constructor()` function requires a `reducers` object along with an optional `state` object, which defaults to an empty `Object`.
-* The `dispatch()` method accepts an `action` and then invokes that `action` against each reducer function.
-* The `subscribe()` method requires a `next` argument, which is a function that accepts the `State` and returns void. The `error` and `complete` arguments are optional. The method returns a new `Subscription` to the `subject`.
+* The `dispatch()` method accepts an `action` and then invokes the `notify` method and emits a next notification to the `state$` subject using the `next()` method.
+* The `notify()` method accepts an `action` and then invokes the `reducer()` function for each slice of state, updating the `state` object.
+* The `subscribe()` method requires a `next` argument, which is a function that accepts the `State` and returns void. The `error` and `complete` arguments are optional. The method returns a new `Subscription` to the `state$` subject.

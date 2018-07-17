@@ -66,6 +66,24 @@ export class AppComponent implements OnInit {
 
 Note that we created the new `sidebarHidden` property as well as updating the `next` notification function when we `subscribe` to state changes in order to set the value of the `sidebarHidden` property from the value in our state tree.
 
+## Update Template
+
+Open **src/app/app.component.html** to display the sidebar along with buttons to hide and show the sidebar:
+
+```html
+<div fxFlexFill fxLayout="row">
+  <div class="sidebar" fxFlex="20" [hidden]="sidebarHidden">
+    <h1>Sidebar</h1>
+  </div>
+  <div class="content" fxFlex>
+    <button (click)="showSidebar()">Show Sidebar</button>
+    <button (click)="hideSidebar()">Hide Sidebar</button>
+  </div>
+</div>
+```
+
+Note, we're using the [Angular flex-layout](https://github.com/angular/flex-layout) module.
+
 ## Serve
 
 Go ahead and serve the project:
