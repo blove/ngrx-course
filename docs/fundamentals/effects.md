@@ -5,7 +5,7 @@
 * Optionally dispatch one or more actions
 * Reactive
 
-```
+```javascript
 @Injectable()
 export class UserEffects {
 

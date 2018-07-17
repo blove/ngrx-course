@@ -6,7 +6,7 @@ Open the **src/app/app.component.ts** file.
 
 First, import the `store` instance and create a new private property in the component class to save a reference:
 
-```
+```javascript
 import { store } from "./store";
 
 export class AppComponent implements OnInit {
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 Then, implement the `OnInit` interface and `ngOnInit()` lifecycle hook to set the `store` property.
 We'll also `subscribe()` to any notifications when the state changes:
 
-```
+```javascript
 ngOnInit() {
     this.store = store;
     this.store.subscribe(state => {
@@ -31,7 +31,7 @@ ngOnInit() {
 Now, let's `dispatch()` some actions.
 We'll create two new methods to toggle the visibility of the sidebar in our template:
 
-```
+```javascript
 hideSidebar() {
   this.store.dispatch(new HideSidebar());
 }
@@ -46,7 +46,7 @@ showSidebar() {
 Finally, we need to create a `sidebarHidden` property.
 We'll default the value to `false` and update the value when the state is updated in our application:
 
-```
+```javascript
 export class AppComponent implements OnInit {
   sidebarHidden = initialSidebarState.hidden;
   store: Store;
@@ -70,7 +70,7 @@ Note that we created the new `sidebarHidden` property as well as updating the `n
 
 Go ahead and serve the project:
 
-```
+```bash
 npm run start:simple-store
 yarn run start:simple-store
 ```

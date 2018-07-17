@@ -5,5 +5,11 @@
   <div class="content" fxFlex>
     <button (click)="showSidebar()">Show Sidebar</button>
     <button (click)="hideSidebar()">Hide Sidebar</button>
+
+    <ul *ngFor="let resort of this.resorts; trackBy: identifyResort">
+      <li>
+        <a [attr.href]="resort.url" target="_blank">{{resort.name}}</a>
+      </li>
+    </ul>
   </div>
 </div>

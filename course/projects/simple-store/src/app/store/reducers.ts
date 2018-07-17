@@ -1,10 +1,10 @@
 import {
-  ResortActions,
   ResortAction,
-  SidebarActions,
-  SidebarAction
-} from "./actions";
-import { State } from "./store";
+  ResortActions,
+  SidebarAction,
+  SidebarActions
+} from './actions';
+import { State } from './store';
 
 export const initialSidebarState = {
   hidden: true
@@ -30,14 +30,14 @@ export const sidebarReducer = (
   }
 };
 
-export const initialResortsState = {
+export const initialResortState = {
   error: null,
   loading: false,
   resorts: []
 };
 
-export const resortsReducer = (
-  state: State = initialResortsState,
+export const resortReducer = (
+  state: State = initialResortState,
   action: ResortAction
 ): State => {
   switch (action.type) {

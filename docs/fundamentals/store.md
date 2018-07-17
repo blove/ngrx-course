@@ -6,7 +6,7 @@
 
 ## Dispatching Actions
 
-```
+```javascript
 export class AddUserComponent {
 
   constructor(private store: Store<AppState>) { }
@@ -25,7 +25,7 @@ export class AddUserComponent {
 
 ## Observing State
 
-```
+```javascript
 export class UserListComponent implements OnInit {
 
   users$: Observable<Array<User>>;

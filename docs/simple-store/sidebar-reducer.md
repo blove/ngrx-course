@@ -6,7 +6,7 @@ Open the **src/app/store/reducers.ts** file.
 
 Before we create the reducer pure function, let's first define the initial state for the sidebar.
 
-```
+```javascript
 export const initialSidebarState = {
   hidden: true
 };
@@ -16,7 +16,7 @@ export const initialSidebarState = {
 
 Now, let's define the `sidebarReducer` function:
 
-```
+```javascript
 export const sidebarReducer = (
   state: State = initialSidebarState,
   action: SidebarAction

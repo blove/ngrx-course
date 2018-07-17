@@ -1,27 +1,28 @@
-import { Resort } from './models';
-import { Action } from './store';
+# Resort Actions
 
-export enum SidebarActions {
-  HideSidebar = '[sidebar] Hide',
-  ShowSidebar = '[sidebar] Show'
-}
+Let's create some actions for loading resorts.
 
-export class HideSidebar implements Action {
-  readonly type = SidebarActions.HideSidebar;
-}
+Open the **src/app/store/actions.ts** file.
 
-export class ShowSidebar implements Action {
-  readonly type = SidebarActions.ShowSidebar;
-}
+## `ResortActions` Enum
 
-export type SidebarAction = HideSidebar | ShowSidebar;
-
+```javascript
 export enum ResortActions {
   LoadResorts = '[resorts] Load',
   LoadResortsFail = '[resorts] Load fail',
   LoadResortsSuccess = '[resorts] Load success'
 }
+```
 
+## Classes
+
+Next, create three new classes:
+
+1. LoadResorts
+2. LoadResortsFail
+3. LoadResortsSuccess
+
+```javascript
 export class LoadResorts implements Action {
   readonly type = ResortActions.LoadResorts;
 }
@@ -37,5 +38,16 @@ export class LoadResortsSuccess implements Action {
 
   constructor(public resorts: Resort[]) {}
 }
+```
 
+* The `LoadResorts` indicates that we are starting to fetch data from the API.
+* The `LoadResortsFail` action indicates that an error occurred.
+* The `LoadResortsSuccess` action indicates that the data was retrieved. 
+
+## Type Union
+
+Finally, create a new type that is a union of the action classes:
+
+```javascript
 export type ResortAction = LoadResorts | LoadResortsSuccess | LoadResortsFail;
+```

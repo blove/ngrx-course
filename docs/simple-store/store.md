@@ -3,14 +3,14 @@
 Our first task is to create a store in our simple-store project.
 All commands assume your current directory is the **course** directory.
 
-To get started, create a new ***store** directory and the following files:
+To get started, create a new ***store** directory and create the following files:
 
 * actions.ts
 * model.ts
 * reducers.ts
 * store.ts
 
-```
+```bash
 mkdir projects/simple-store/src/app/store
 touch projects/simple-store/src/app/store/actions.ts
 touch projects/simple-store/src/app/store/models.ts
@@ -25,7 +25,7 @@ Open the **store.ts** file.
 First, create the `Action` interface. 
 Each action will be a class that implements this interface, which simply requires the `type` string property.
 
-```
+```javascript
 export interface Action {
   type: string;
 }
@@ -34,7 +34,7 @@ export interface Action {
 Next, create a `ReducerMap` interface.
 This interface will be used to define the reducer functions associated with each property in the state object.
 
-```
+```javascript
 export interface ReducerMap {
   [key: string]: Function;
 }
@@ -43,7 +43,7 @@ export interface ReducerMap {
 Finally, create the `State` interface.
 This interface represents the state object.
 
-```
+```javascript
 export interface State {
   [key: string]: any;
 }
@@ -53,7 +53,7 @@ export interface State {
 
 Create a new `Store` class:
 
-```
+```javascript
 export class Store {
   private subject = new BehaviorSubject<State>(null);
 

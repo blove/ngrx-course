@@ -8,10 +8,10 @@ Open the **src/app/store/actions.ts** file.
 
 To get started, create an enum with each action's type string:
 
-```
+```javascript
 export enum SidebarActions {
-  HideSidebar = "[sidebar] Hide",
-  ShowSidebar = "[sidebar] Show"
+  HideSidebar = '[sidebar] Hide',
+  ShowSidebar = '[sidebar] Show'
 }
 ```
 
@@ -22,7 +22,7 @@ Next, create two classes:
 1. HideSidebar
 2. ShowSidebar
 
-```
+```javascript
 export class HideSidebar implements Action {
   readonly type = SidebarActions.HideSidebar;
 }
@@ -39,7 +39,7 @@ export class ShowSidebar implements Action {
 
 Finally, export a new type that is the union of the two classes:
 
-```
+```javascript
 export type SidebarAction = HideSidebar | ShowSidebar;
 ```
 

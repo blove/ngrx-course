@@ -1,16 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-
-import { LoadResorts, HideSidebar, ShowSidebar } from "./store/actions";
-import { Store } from "./store/store";
-import { store } from "./store";
-import { initialSidebarState } from "./store/reducers";
+import { Component, OnInit } from '@angular/core';
+import { store } from './store';
+import { HideSidebar, LoadResorts, ShowSidebar } from './store/actions';
+import { Resort } from './store/models';
+import { initialSidebarState } from './store/reducers';
+import { Store } from './store/store';
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  resorts: Resort[];
   sidebarHidden = initialSidebarState.hidden;
   store: Store;
 
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit {
     this.store = store;
     this.store.dispatch(new LoadResorts());
     this.store.subscribe(state => {
+      this.resorts = state.resort.resorts;
       this.sidebarHidden = state.sidebar.hidden;
       console.log(state);
     });
@@ -25,6 +27,10 @@ export class AppComponent implements OnInit {
 
   hideSidebar() {
     this.store.dispatch(new HideSidebar());
+  }
+
+  identifyResort(resort: Resort) {
+    return resort.id;
   }
 
   showSidebar() {
