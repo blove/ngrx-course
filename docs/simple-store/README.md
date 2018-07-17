@@ -10,4 +10,4 @@
 * [Resorts Actions](./resort-actions.md)
 * [Update Reducer with Resort Actions](./resort-reducer.md)
 * [Support Side Effects](./effects.md)
-* [Dispatch Resort Actions](./dispatch-resort-acetions.md)
+* [Show List of Ski Resorts](./resort-listing.md)

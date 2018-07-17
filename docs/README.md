@@ -16,7 +16,7 @@
   * [Create Store Class](simple-store/store.md)
   * [Sidebar Actions](simple-store/actions-sidebar.md)
   * [Sidebar reducer](simple-store/reducers-sidebar.md)
-  * [Creae Store Instance](simple-store/create-store.md)
+  * [Create Store Instance](simple-store/create-store.md)
   * [Dispatch Actions and Subscribe to State](simple-store/dispatch-and-subscribe.md)
   * [Resorts JSON Server](simple-store/resorts-json-server.md)
   * [Resorts Actions](simple-store/resort-actions.md)

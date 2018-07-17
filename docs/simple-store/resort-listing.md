@@ -1,4 +1,4 @@
-# Dispatch Resort Actions
+# Resort Listing
 
 Let's update our application to list all of the ski resorts.
 
