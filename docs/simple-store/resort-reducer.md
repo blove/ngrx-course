@@ -4,7 +4,7 @@ Open the **src/app/store/reducers.ts** file.
 
 ## Initial State
 
-Define the initial state for the resort state:
+Declare the initial state for the resort state:
 
 ```javascript
 export const initialResortsState = {
@@ -16,7 +16,7 @@ export const initialResortsState = {
 
 ## Reducer
 
-Define a reducer pure function that returns a new state object determined by an appropriate action:
+Declare a reducer pure function that returns a new state object determined by an appropriate action:
 
 ```javascript
 export const resortReducer = (
@@ -48,7 +48,7 @@ export const resortReducer = (
 };
 ```
 
-* The `resortReducer` function accepts two arguments: the current state, which defaults to the initial state that we defined previously, and the action that is being performed.
+* The `resortReducer` function accepts two arguments: the current state, which defaults to the initial state that we declared previously, and the action that is being performed.
 * Note that the return type is a new `State` object.
 * Within our reducer, we `switch` on the `action.type` value.
 * For the `LoadResorts` action we return a new state with the `loading` property set to `true`. We can use this to toggle a loading indicator.
@@ -67,6 +67,6 @@ Open **src/app/store/index.ts** and specify the new `resort` property in the sta
 ```javascript
 const reducers: ReducerMap = {
   resort: resortReducer,
-  sidebar: sidebarReducer
+  sidenav: sidenavReducer
 };
 ```

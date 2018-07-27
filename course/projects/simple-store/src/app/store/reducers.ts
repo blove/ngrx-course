@@ -1,29 +1,29 @@
 import {
   ResortAction,
   ResortActions,
-  SidebarAction,
-  SidebarActions
+  SidenavAction,
+  SidenavActionTypes
 } from './actions';
 import { State } from './store';
 
-export const initialSidebarState = {
-  hidden: true
+export const initialSidenavState = {
+  opened: false
 };
 
-export const sidebarReducer = (
-  state: State = initialSidebarState,
-  action: SidebarAction
+export const sidenavReducer = (
+  state: State = initialSidenavState,
+  action: SidenavAction
 ): State => {
   switch (action.type) {
-    case SidebarActions.HideSidebar:
+    case SidenavActionTypes.HideSidenav:
       return {
         ...state,
-        hidden: true
+        opened: false
       };
-    case SidebarActions.ShowSidebar:
+    case SidenavActionTypes.ShowSidenav:
       return {
         ...state,
-        hidden: false
+        opened: true
       };
     default:
       return state;

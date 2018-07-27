@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from '@app/containers/dashboard/dashboard.component';
 import { PageNotFoundComponent } from '@app/containers/page-not-found/page-not-found.component';
-import { Route } from '@app/core/services/route.service';
+import { RouteService } from '@app/core/services/route.service';
 
 const routes: Routes = [
-  Route.withShell([
+  RouteService.withShell([
     { path: 'dashboard', component: DashboardComponent },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ]),

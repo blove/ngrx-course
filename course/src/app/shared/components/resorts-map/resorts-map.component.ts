@@ -3,7 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-resorts-map',
   templateUrl: './resorts-map.component.html',
-  styleUrls: ['./resorts-map.component.css']
+  styleUrls: ['./resorts-map.component.scss']
 })
 export class ResortsMapComponent implements OnInit {
   @Input() height: number;

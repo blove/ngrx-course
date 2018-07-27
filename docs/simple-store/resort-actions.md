@@ -14,7 +14,7 @@ export enum ResortActions {
 }
 ```
 
-## Classes
+## Action Classes
 
 Next, create three new classes:
 

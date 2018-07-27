@@ -8,11 +8,11 @@ First, create a new object that maps a property within the state tree to a reduc
 
 ```javascript
 const reducers: ReducerMap = {
-  sidebar: sidebarReducer
+  sidenav: sidenavReducer
 };
 ```
 
-This defines a new `sidebar` property within our state tree along with the `sidebarReducer` function that we defined previously.
+This declares a new `sidenav` property within our state tree along with the `sidenavReducer` function that we declared previously.
 
 ## New Up Store
 

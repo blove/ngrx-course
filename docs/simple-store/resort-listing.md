@@ -20,7 +20,7 @@ ngOnInit() {
   this.store.dispatch(new LoadResorts());
   this.store.subscribe(state => {
     this.resorts = state.resort.resorts;
-    this.sidebarHidden = state.sidebar.hidden;
+    this.sidenavHidden = state.sidenav.hidden;
     console.log(state);
   });
 }

@@ -1,36 +1,36 @@
-# Sidebar Reducer
+# Sidenav Reducer
 
 Open the **src/app/store/reducers.ts** file.
 
 ## Initial State
 
-Before we create the reducer pure function, let's first define the initial state for the sidebar.
+Before we create the reducer pure function, let's first declare the initial state for the sidenav.
 
 ```javascript
-export const initialSidebarState = {
-  hidden: true
+export const initialSidenavState = {
+  opened: false
 };
 ```
 
 ## Reducer
 
-Now, let's define the `sidebarReducer` function:
+Now, let's declare the `sidenavReducer` function:
 
 ```javascript
-export const sidebarReducer = (
-  state: State = initialSidebarState,
-  action: SidebarAction
+export const sidenavReducer = (
+  state: State = initialSidenavState,
+  action: SidenavAction
 ): State => {
   switch (action.type) {
-    case SidebarActions.HideSidebar:
+    case SidenavActionTypes.HideSidenav:
       return {
         ...state,
-        hidden: true
+        opened: false
       };
-    case SidebarActions.ShowSidebar:
+    case SidenavActionTypes.ShowSidenav:
       return {
         ...state,
-        hidden: false
+        opened: true
       };
     default:
       return state;
@@ -38,8 +38,8 @@ export const sidebarReducer = (
 };
 ```
 
-* The `sidebarReducer` function accepts two arguments: the current state, which defaults to the initial state that we defined previously, and the action that is being performed.
+* The `sidenavReducer` function accepts two arguments: the current state, which defaults to the initial state that we declared previously, and the action that is being performed.
 * Note that the return type is a new `State` object.
 * Within our reducer, we `switch` on the `action.type` value.
-* For the `SidebarActions.HideSidebar` action we return a new object, first with the spread of the current state object, and then we set the `hidden` property to `true`.
-* Similarly, the `SidebarActions.ShowSidebar` action sets the `hidden` property to `false`.
+* For the `SidenavActionTypes.HideSidenav` action we return a new object, first with the spread of the current state object, and then we set the `hidden` property to `true`.
+* Similarly, the `SidenavActionTypes.ShowSidenav` action sets the `hidden` property to `false`.

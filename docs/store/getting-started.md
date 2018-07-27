@@ -1,5 +1,19 @@
 # Getting Started
 
+To begin, checkout the *02-store* branch:
+
+```bash
+git checkout 02-store
+```
+
+If you have any pending changes simply reset:
+
+```bash
+git reset --hard
+```
+
+## Install
+
 Let's go ahead and install all of the NgRx libraries:
 
 ```bash
@@ -28,6 +42,21 @@ Install the Redux Devtools:
 
 * [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/remotedev/)
+
+## Serve the Application
+
+Serve the application via either command:
+
+```bash
+npm start
+yarn starr
+```
+
+This will build and start a live reload server available at: [http://localhost:4200](https://localhost:4200).
+
+This also starts a simple json-server with a RESTful API on port 3000.
+
+If you experience a port conflict ensure that you do not have any other Angular CLI projects running.
 
 ## Google Maps API Key
 

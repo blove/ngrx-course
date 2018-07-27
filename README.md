@@ -71,7 +71,7 @@ Browse the API at: [https://localhost:3000](https://localhost:3000)
 
 * 01-simple-store
 * 01-simple-store-complete
-
-## License
-
-MIT
+* 02-store
+* 02-store-complete
+* 03-effects
+* 03-effects-complete

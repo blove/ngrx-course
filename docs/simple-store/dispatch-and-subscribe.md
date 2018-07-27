@@ -29,33 +29,33 @@ ngOnInit() {
 ## `dispatch()` Action
 
 Now, let's `dispatch()` some actions.
-We'll create two new methods to toggle the visibility of the sidebar in our template:
+We'll create two new methods to toggle the visibility of the sidenav in our template:
 
 ```javascript
-hideSidebar() {
-  this.store.dispatch(new HideSidebar());
+hideSidenav() {
+  this.store.dispatch(new HideSidenav());
 }
 
-showSidebar() {
-  this.store.dispatch(new ShowSidebar());
+showSidenav() {
+  this.store.dispatch(new ShowSidenav());
 }
 ```
 
-## Toggle Sidebar Visibility
+## Toggle Sidenav Visibility
 
-Finally, we need to create a `sidebarHidden` property.
+Finally, we need to create a `sidenavHidden` property.
 We'll default the value to `false` and update the value when the state is updated in our application:
 
 ```javascript
 export class AppComponent implements OnInit {
-  sidebarHidden = initialSidebarState.hidden;
+  sidenavHidden = initialSidenavState.hidden;
   store: Store;
 
   ngOnInit() {
     this.store = store;
     this.store.dispatch(new LoadResorts());
     this.store.subscribe(state => {
-      this.sidebarHidden = state.sidebar.hidden;
+      this.sidenavHidden = state.sidenav.hidden;
       console.log(state);
     });
   }
@@ -64,20 +64,20 @@ export class AppComponent implements OnInit {
 }
 ```
 
-Note that we created the new `sidebarHidden` property as well as updating the `next` notification function when we `subscribe` to state changes in order to set the value of the `sidebarHidden` property from the value in our state tree.
+Note that we created the new `sidenavHidden` property as well as updating the `next` notification function when we `subscribe` to state changes in order to set the value of the `sidenavHidden` property from the value in our state tree.
 
 ## Update Template
 
-Open **src/app/app.component.html** to display the sidebar along with buttons to hide and show the sidebar:
+Open **src/app/app.component.html** to display the sidenav along with buttons to hide and show the sidenav:
 
 ```html
 <div fxFlexFill fxLayout="row">
-  <div class="sidebar" fxFlex="20" [hidden]="sidebarHidden">
-    <h1>Sidebar</h1>
+  <div class="sidenav" fxFlex="20" [hidden]="sidenavHidden">
+    <h1>Sidenav</h1>
   </div>
   <div class="content" fxFlex>
-    <button (click)="showSidebar()">Show Sidebar</button>
-    <button (click)="hideSidebar()">Hide Sidebar</button>
+    <button (click)="showSidenav()">Show Sidenav</button>
+    <button (click)="hideSidenav()">Hide Sidenav</button>
   </div>
 </div>
 ```
@@ -93,4 +93,4 @@ npm run start:simple-store
 yarn run start:simple-store
 ```
 
-Inspect the console for state changes as you click the buttons to show and hide the sidebar.
+Inspect the console for state changes as you click the buttons to show and hide the sidenav.

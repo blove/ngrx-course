@@ -6,3 +6,11 @@
 * [Reducers](./reducers.md)
 * [Store](./store.md)
 * [Effects](./effects.md)
+
+## Goals
+
+* Learn the core principles of Redux.
+* Learn the basic architecture of NgRx.
+* Learn the purpose of actions.
+* Learn the purpose of reducers.
+* Learn the purpose of effects.

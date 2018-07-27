@@ -1,20 +1,20 @@
 import { Resort } from './models';
 import { Action } from './store';
 
-export enum SidebarActions {
-  HideSidebar = '[sidebar] Hide',
-  ShowSidebar = '[sidebar] Show'
+export enum SidenavActionTypes {
+  HideSidenav = '[sidenav] Hide',
+  ShowSidenav = '[sidenav] Show'
 }
 
-export class HideSidebar implements Action {
-  readonly type = SidebarActions.HideSidebar;
+export class HideSidenav implements Action {
+  readonly type = SidenavActionTypes.HideSidenav;
 }
 
-export class ShowSidebar implements Action {
-  readonly type = SidebarActions.ShowSidebar;
+export class ShowSidenav implements Action {
+  readonly type = SidenavActionTypes.ShowSidenav;
 }
 
-export type SidebarAction = HideSidebar | ShowSidebar;
+export type SidenavAction = HideSidenav | ShowSidenav;
 
 export enum ResortActions {
   LoadResorts = '[resorts] Load',

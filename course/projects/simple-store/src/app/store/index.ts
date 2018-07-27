@@ -1,10 +1,10 @@
 import { ResortEffects } from './effects';
-import { resortReducer, sidebarReducer } from './reducers';
+import { resortReducer, sidenavReducer } from './reducers';
 import { ReducerMap, Store } from './store';
 
 const reducers: ReducerMap = {
   resort: resortReducer,
-  sidebar: sidebarReducer
+  sidenav: sidenavReducer
 };
 
 export const store = new Store(reducers, [ResortEffects]);

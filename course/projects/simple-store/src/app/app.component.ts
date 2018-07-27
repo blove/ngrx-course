@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { store } from './store';
-import { HideSidebar, LoadResorts, ShowSidebar } from './store/actions';
+import { HideSidenav, LoadResorts, ShowSidenav } from './store/actions';
 import { Resort } from './store/models';
-import { initialSidebarState } from './store/reducers';
+import { initialSidenavState } from './store/reducers';
 import { Store } from './store/store';
 
 @Component({
@@ -12,7 +12,7 @@ import { Store } from './store/store';
 })
 export class AppComponent implements OnInit {
   resorts: Resort[];
-  sidebarHidden = initialSidebarState.hidden;
+  sidenavOpened = initialSidenavState.opened;
   store: Store;
 
   ngOnInit() {
@@ -20,20 +20,20 @@ export class AppComponent implements OnInit {
     this.store.dispatch(new LoadResorts());
     this.store.subscribe(state => {
       this.resorts = state.resort.resorts;
-      this.sidebarHidden = state.sidebar.hidden;
+      this.sidenavOpened = state.sidenav.opened;
       console.log(state);
     });
   }
 
-  hideSidebar() {
-    this.store.dispatch(new HideSidebar());
+  hideSidenav() {
+    this.store.dispatch(new HideSidenav());
   }
 
   identifyResort(resort: Resort) {
     return resort.id;
   }
 
-  showSidebar() {
-    this.store.dispatch(new ShowSidebar());
+  showSidenav() {
+    this.store.dispatch(new ShowSidenav());
   }
 }

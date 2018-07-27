@@ -1,3 +1,4 @@
+import { MaterialModule } from '@app/material.module';
 import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,9 +12,18 @@ import { CoreModule } from '@app/core/core.module';
 import { SharedModule } from '@app/shared/shared.module';
 import { StateModule } from '@app/state/state.module';
 import { environment } from '@env/environment';
+import { SearchDialogComponent } from '@app/containers/search-dialog/search-dialog.component';
+import { HttpClientModule } from '../../node_modules/@angular/common/http';
+import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    PageNotFoundComponent,
+    SearchDialogComponent
+  ],
+  entryComponents: [SearchDialogComponent],
   imports: [
     AgmCoreModule.forRoot({
       apiKey: environment.google.maps.apiKey
@@ -22,6 +32,9 @@ import { environment } from '@env/environment';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule.forRoot(),
+    HttpClientModule,
+    MaterialModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('./ngsw-worker.js', {
       enabled: environment.production
     }),

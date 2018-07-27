@@ -22,7 +22,7 @@ Redux has 3 core principles:
     },
     navigationId: number
   },
-  sidebar: {
+  sidenav: {
     open: boolean
   },
   user: User

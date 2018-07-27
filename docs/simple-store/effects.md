@@ -41,7 +41,7 @@ export class ResortEffects {
 
 Our next task is to update the `Store` class to support side effects.
 
-Open the **src/app/store/store.ts** file and define a new `effects` property in the `Store` class:
+Open the **src/app/store/store.ts** file and declare a new `effects` property in the `Store` class:
 
 ```javascript
 private effects: Function[] = [];
@@ -87,7 +87,7 @@ notify(action: Action) {
 ```
 
 * Iterate over the array of `effects`, invoking each function.
-* Then `filter()` out any results that are not truthy. This will avoid attempting to dispatch the `null` value we defined for when we do not want to dispatch another action from an effect.
+* Then `filter()` out any results that are not truthy. This will avoid attempting to dispatch a `null` (or falsey) value.
 * Finally, `subscribe()` to the `Observable` and `dispatch()` the next `action`.
 
 ## Update new `store`

@@ -1,10 +1,10 @@
 <div fxFlexFill fxLayout="row">
-  <div class="sidebar" fxFlex="20" [hidden]="sidebarHidden">
-    <h1>Sidebar</h1>
+  <div class="sidenav" fxFlex="20" [hidden]="!sidenavOpened">
+    <h1>Sidenav</h1>
   </div>
   <div class="content" fxFlex>
-    <button (click)="showSidebar()">Show Sidebar</button>
-    <button (click)="hideSidebar()">Hide Sidebar</button>
+    <button (click)="showSidenav()">Show Sidenav</button>
+    <button (click)="hideSidenav()">Hide Sidenav</button>
 
     <ul *ngFor="let resort of this.resorts; trackBy: identifyResort">
       <li>

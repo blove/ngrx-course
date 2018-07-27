@@ -1,5 +1,5 @@
-<mat-sidenav-container class="container" fxFlex>
-  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [(opened)]="opened">
+<mat-sidenav-container (backdropClick)="toggleSidenav()" class="container" fxFlex>
+  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" [opened]="opened | async">
     <nav>
       <mat-list>
         <mat-divider></mat-divider>
@@ -7,7 +7,7 @@
           <span>Dashboard</span>
         </a>
         <mat-divider></mat-divider>
-        <a mat-list-item routerLink="/search" routerLinkActive="active" (click)="isMobile && sidenav.close()">
+        <a mat-list-item (click)="openDialog() && isMobile && sidenav.close()">
           <span>Search</span>
         </a>
         <mat-divider></mat-divider>
@@ -17,7 +17,7 @@
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button class="menu-button" mat-icon-button (click)="sidenav.toggle()">
+      <button class="menu-button" mat-icon-button (click)="toggleSidenav()">
         <mat-icon>menu</mat-icon>
       </button>
       <span>{{title}}</span>

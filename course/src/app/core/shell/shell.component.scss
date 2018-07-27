@@ -3,6 +3,7 @@
 :host {
   display: flex;
   flex: 1;
+  background-color: mat-color($mat-grey, 800);
 
   .container {
     position: absolute;
@@ -14,7 +15,7 @@
 
   mat-sidenav {
     min-width: 200px;
-    background: #000;
+    background: mat-color($mat-grey, 900);
 
     .mat-list {
       padding-top: 0;
@@ -26,7 +27,7 @@
 
       &:hover {
         color: mat-color($mat-blue-grey, 50);
-        background: mat-color($mat-grey, 900);
+        background: mat-color($mat-grey, 800);
       }
     }
   }
