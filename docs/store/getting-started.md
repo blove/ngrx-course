@@ -14,11 +14,11 @@ git reset --hard
 
 ## Install
 
-Let's go ahead and install all of the NgRx libraries:
+Install the necessary NgRx libraries:
 
 ```bash
-npm install @ngrx/{effects,entity,router-store,schematics,store,store-devtools}
-yarn add @ngrx/{effects,entity,router-store,schematics,store,store-devtools}
+npm install @ngrx/{schematics,store,store-devtools}
+yarn add @ngrx/{schematics,store,store-devtools}
 ```
 
 ## Configure Schematics
@@ -49,7 +49,7 @@ Serve the application via either command:
 
 ```bash
 npm start
-yarn starr
+yarn start
 ```
 
 This will build and start a live reload server available at: [http://localhost:4200](https://localhost:4200).

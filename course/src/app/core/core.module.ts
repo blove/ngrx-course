@@ -7,14 +7,12 @@ import {
 } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import { AuthenticationService } from '@app/core/authentication/authentication.service';
 import { ShellComponent } from '@app/core/shell/shell.component';
 import { MaterialModule } from '@app/material.module';
 
 @NgModule({
   imports: [CommonModule, FlexLayoutModule, MaterialModule, RouterModule],
-  declarations: [ShellComponent],
-  providers: [AuthenticationService]
+  declarations: [ShellComponent]
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {

@@ -69,7 +69,7 @@ This is simply a projector function that returns the `boolean` value of the `ope
 
 ## Declare Selector
 
-Finally, open **src/app/state/index.ts** and declare a new `isOpened()` selector function:
+Finally, open **src/app/state/index.ts** and declare a new `sidenavIsOpen()` selector function:
 
 ```javascript
 import {
@@ -79,7 +79,7 @@ import {
   MetaReducer
 } from '@ngrx/store';
 
-export const isOpened = createSelector(sidenavState, getOpened);
+export const sidenavIsOpen = createSelector(sidenavState, getOpened);
 ```
 
 * We use the `createSelector()` function to declare a new selector.
@@ -101,17 +101,17 @@ export declare function createSelector<State, S1, Result>(s1: Selector<State, S1
 * The first argument, `s1`, is a `Selector` function that returns the `S1` type for the given `State`.
 * The second argument, `projector`, is a function that receives the `S1` value (which is of type `S1`) and returns the `Result`.
 
-When we declared the `isOpened` selector we specified the `sidenavState` (feature) selector as the first argument.
+When we declared the `sidenavIsOpen` selector we specified the `sidenavState` (feature) selector as the first argument.
 If you recall, this returns the `sidenav` feature state, which is an object with the property `opened`.
 
 The second argument is the `getOpened` projector function, which accepts the `sidenav` feature state and returns the value of the `opened` property.
 
 ## Inline Projector
 
-We _could_ have declared the `isOpened` selector with the `projector` function inline:
+We _could_ have declared the `sidenavIsOpen` selector with the `projector` function inline:
 
 ```javascript
-export const isOpened = createSelector(sidenavState, (state: SidenavState) => state.opened);
+export const sidenavIsOpen = createSelector(sidenavState, (state: SidenavState) => state.opened);
 ```
 
 **Pro Tip**: How you define the projector function is a matter of preference.

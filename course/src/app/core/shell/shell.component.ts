@@ -3,7 +3,7 @@ import { ObservableMedia } from '@angular/flex-layout';
 import { MatDialog } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { SearchDialogComponent } from '@app/containers/search-dialog/search-dialog.component';
-import { isOpened, State } from '@app/state';
+import { sidenavIsOpen, State } from '@app/state';
 import { HideSidenav, ShowSidenav } from '@app/state/sidenav/sidenav.actions';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -24,7 +24,7 @@ export class ShellComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.opened = this.store.pipe(select(isOpened));
+    this.opened = this.store.pipe(select(sidenavIsOpen));
   }
 
   // logout() {

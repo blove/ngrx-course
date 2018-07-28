@@ -2,34 +2,6 @@
 
 This is a 1-day course on NgRx.
 
-## Table of Contents
-
-* Introduction
-  * What is NgRx?
-  * What does it solve?
-  * Why use NgRx?
-* Fundamentals
-  * 3 Principles of Redux
-  * NgRx Architecture
-  * Actions
-  * Reducers
-  * Store
-  * Effects
-* A Simple Store
-  * Create a Store
-  * Dispatch an Action
-  * Select State
-* Getting Started with NgRx
-* UI State
-* Entities
-  * Create
-  * Read
-  * Update
-  * Delete
-* Router
-  * Binding
-  * Params
-
 ## Prequisites
 
 Skills:
@@ -75,3 +47,7 @@ Browse the API at: [https://localhost:3000](https://localhost:3000)
 * 02-store-complete
 * 03-effects
 * 03-effects-complete
+
+## Copyright
+
+Copyright (c) 2018 Brian Love

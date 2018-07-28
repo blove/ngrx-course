@@ -5,7 +5,7 @@ To recap, we have:
 * Declared two actions: `HideSidenav` and `ShowSidenav`.
 * Declared a `reducer()` function to mutate the state of our application based on the actions dispatched.
 * Declared the `sidenav` feature state.
-* Declared the `sidenavState` feature selector and the `isOpened` selector functions.
+* Declared the `sidenavState` feature selector and the `sidenavIsOpen` selector functions.
 
 With our actions, reducer and selectors declared we are ready to implement the behavior in our Angular application.
 
@@ -71,7 +71,7 @@ export class ShellComponent implments OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.opened = this.store.pipe(select(isOpened));
+    this.opened = this.store.pipe(select(sidenavIsOpen));
   }
 }
 ```
@@ -79,7 +79,7 @@ export class ShellComponent implments OnInit {
 * The `Store` singleton object is both an `Observer` and an `Observable`.
 * Since it is an `Observable` we can invoke the `pipe()` method.
 * We use the `select()` operator from the @ngrx/store module to select a slice of data within the state object.
-* We specify the `isOpened` selector we declared previously.
+* We specify the `sidenavIsOpen` selector we declared previously.
 
 ## Review ShellComponent Template
 

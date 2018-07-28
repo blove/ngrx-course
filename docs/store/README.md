@@ -2,9 +2,9 @@
 
 * [Getting Started](./getting-started.md)
 * [State Module](./state-module.md)
-* [Sidenav Actions]('./sidenav-actions.md')
+* [Sidenav Actions](./sidenav-actions.md)
 * [Sidenav Reducer](./sidenav-reducer.md)
-* [Sidenav Selectors](./sidenav-selector.md)
+* [Sidenav Selectors](./sidenav-selectors.md)
 * [Sidenav Select](./sidenav-select.md)
 * [Sidenav Dispatch](./sidenav-dispatch.md)
 

@@ -2,8 +2,8 @@ import { Resort } from './models';
 import { Action } from './store';
 
 export enum SidenavActionTypes {
-  HideSidenav = '[sidenav] Hide',
-  ShowSidenav = '[sidenav] Show'
+  HideSidenav = '[Sidenav] Hide Sidenav',
+  ShowSidenav = '[Sidenav] Show Sidenav'
 }
 
 export class HideSidenav implements Action {

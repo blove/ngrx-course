@@ -1,5 +1,9 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@app/material.module';
+import { Store } from '@ngrx/store';
 import { SearchDialogComponent } from './search-dialog.component';
 
 describe('SearchDialogComponent', () => {
@@ -8,9 +12,24 @@ describe('SearchDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchDialogComponent ]
-    })
-    .compileComponents();
+      declarations: [SearchDialogComponent],
+      imports: [
+        FormsModule,
+        HttpClientTestingModule,
+        MaterialModule,
+        NoopAnimationsModule,
+        ReactiveFormsModule
+      ],
+      providers: [
+        {
+          provide: Store,
+          useValue: {
+            dispatch: jest.fn(),
+            pipe: jest.fn()
+          }
+        }
+      ]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

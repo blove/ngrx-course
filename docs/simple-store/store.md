@@ -3,7 +3,7 @@
 Our first task is to create a store in our simple-store project.
 All commands assume your current directory is the **course** directory.
 
-To get started, create a new ***store** directory and create the following files:
+To get started, create a new **store** directory and create the following files:
 
 * actions.ts
 * model.ts

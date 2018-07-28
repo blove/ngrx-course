@@ -1,53 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { MatDialogRef } from '@angular/material';
-import { Observable } from 'rxjs';
-
-import { ResortService } from './../../core/services/resort.service';
-import { startWith, map } from '../../../../node_modules/rxjs/operators';
+import { MatAutocompleteSelectedEvent } from '@angular/material';
 import { Resort } from '@app/models/resort.model';
+import { resorts, State } from '@app/state';
+import { SearchResorts, SelectResort } from '@app/state/resort/resort.actions';
+import { select, Store } from '@ngrx/store';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, filter, takeUntil } from 'rxjs/operators';
 
 @Component({
   templateUrl: './search-dialog.component.html',
   styleUrls: ['./search-dialog.component.scss']
 })
-export class SearchDialogComponent implements OnInit {
-  resorts: Resort[];
-  filteredResorts: Observable<Resort[]>;
-  searchInput = new FormControl();
+export class SearchDialogComponent implements OnDestroy, OnInit {
+  resorts: Observable<Resort[]>;
+  searchFormControl = new FormControl();
 
-  constructor(
-    public dialogRef: MatDialogRef<SearchDialogComponent>,
-    private resortService: ResortService
-  ) {}
+  private unsubscribe = new Subject<void>();
+
+  constructor(private store: Store<State>) {}
+
+  ngOnDestroy() {
+    this.unsubscribe.next();
+    this.unsubscribe.complete();
+  }
 
   ngOnInit() {
-    this.getResorts();
-  }
+    this.resorts = this.store.pipe(
+      select(resorts),
+      filter(resorts => resorts.length > 0)
+    );
 
-  getResorts() {
-    this.resortService.getResorts().subscribe(resorts => {
-      if (resorts) {
-        this.watchValueChanges();
-        return (this.resorts = resorts);
-      }
-    });
-  }
-
-  watchValueChanges() {
-    this.filteredResorts = this.searchInput.valueChanges.pipe(
-      startWith(''),
-      map(
-        resort => (resort ? this.filterResorts(resort) : this.resorts.slice())
+    this.searchFormControl.valueChanges
+      .pipe(
+        filter(q => q.length > 1),
+        debounceTime(500),
+        takeUntil(this.unsubscribe)
       )
-    );
+      .subscribe(q => this.store.dispatch(new SearchResorts(q)));
   }
 
-  filterResorts(value: string): Resort[] {
-    const filterValue = value.toLowerCase();
+  displayResort(resort?: Resort): string | undefined {
+    return resort ? resort.name : undefined;
+  }
 
-    return this.resorts.filter(
-      resort => resort.name.toLowerCase().indexOf(filterValue) === 0
-    );
+  resortSelected(event: MatAutocompleteSelectedEvent) {
+    const resort: Resort = event.option.value;
+    this.store.dispatch(new SelectResort(resort.id));
   }
 }

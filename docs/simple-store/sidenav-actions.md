@@ -10,8 +10,8 @@ To get started, create an enum with each action's type string:
 
 ```javascript
 export enum SidenavActionTypes {
-  HideSidenav = '[sidenav] Hide',
-  ShowSidenav = '[sidenav] Show'
+  HideSidenav = '[Sidenav] Hide Sidenav',
+  ShowSidenav = '[Sidenav] Show Sidenav'
 }
 ```
 

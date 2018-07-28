@@ -7,7 +7,7 @@
 
 ```javascript
 {
-  type: '[sidenav] Show'
+  type: '[Sidenav] Show Sidenav'
 }
 ```
 

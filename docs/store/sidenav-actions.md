@@ -8,19 +8,19 @@ If you recall from the Foundations chapter:
 
 ## Create Action Types
 
-Create a new directory **src/app/state/actions**, along with the file **src/app/state/actions/sidenav.actions.ts**:
+Create a new directory **src/app/state/sidenav**, along with the file **src/app/state/sidenav/sidenav.actions.ts**:
 
 ```bash
-mkdir src/app/state/actions
-touch src/app/state/actions/sidenav.actions.ts
+mkdir src/app/state/sidenav
+touch src/app/state/sidenav/sidenav.actions.ts
 ```
 
-Create a `SidenavActionTypes` enum with the following actions:
+Open the **sidenav.actions.ts** file and create an enum with the following members:
 
 1. HideSidenav
 2. ShowSidenav
 
-These actions will update the UI state of the sidenav:
+Specify a unique string value for each enum member:
 
 ```javascript
 export enum SidenavActionTypes {
@@ -31,9 +31,11 @@ export enum SidenavActionTypes {
 
 ## Action Classes
 
-We are ready to create the action classes:
+Create the action classes:
 
 ```javascript
+import { Action } from '@ngrx/store';
+
 export class HideSidenav implements Action {
   readonly type = SidenavActionTypes.HideSidenav;
 }

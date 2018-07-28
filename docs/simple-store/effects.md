@@ -1,7 +1,7 @@
 # Side Effects
 
 What is a side effect?
-According to wikipedia a [side effect](https://en.wikipedia.org/wiki/Side_effect_(computer_science)) is:
+According to wikipedia a <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">side effect</a> is:
 
 > A function or expression is said to have a side effect if it modifies some state outside its local environment or has an observable interaction with the outside world besides returning a value.
 

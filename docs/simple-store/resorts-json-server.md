@@ -9,9 +9,9 @@ Feel free to buy me one later.😉
 
 We'll be using a REST API to learn how to write actions that are intended for asynchronous loading of persisted data from a backend.
 
-[JSON Server](https://github.com/typicode/json-server) provides a fake REST API based on the values in the *server/db.json file*.
+[JSON Server](https://github.com/typicode/json-server) provides a fake REST API based on the values in the **data/db.json** file.
 
-Start the server via:
+The server is start along with the Angular CLI serve command when you start the application via:
 
 ```bash
 yarn start

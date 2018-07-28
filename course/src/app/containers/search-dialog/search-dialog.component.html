@@ -1,9 +1,9 @@
 <mat-dialog-content>
   <mat-form-field>
-    <input matInput placeholder="Search for a resort..." [formControl]="searchInput" [matAutocomplete]="auto">
+    <input matInput placeholder="Search for a resort..." [formControl]="searchFormControl" [matAutocomplete]="auto">
   </mat-form-field>
-  <mat-autocomplete #auto="matAutocomplete">
-    <mat-option *ngFor="let resort of filteredResorts | async" [value]="resort.name">
+  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayResort" (optionSelected)="resortSelected($event)">
+    <mat-option *ngFor="let resort of resorts | async" [value]="resort">
       {{ resort.name }}
     </mat-option>
   </mat-autocomplete>

@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { AuthenticationService } from '@app/core/authentication/authentication.service';
-import { MockAuthenticationService } from '@app/core/authentication/authentication.service.mock';
 import { CoreModule } from '@app/core/core.module';
 import { ShellComponent } from '@app/core/shell/shell.component';
+import { Store } from '@ngrx/store';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -14,7 +13,13 @@ describe('ShellComponent', () => {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, BrowserAnimationsModule, CoreModule],
       providers: [
-        { provide: AuthenticationService, useClass: MockAuthenticationService }
+        {
+          provide: Store,
+          useValue: {
+            dispatch: jest.fn(),
+            pipe: jest.fn()
+          }
+        }
       ]
     }).compileComponents();
   }));

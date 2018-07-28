@@ -2,9 +2,9 @@
 
 * [Create Store Class](./store.md)
 * [Sidenav Actions](./sidenav-actions.md)
-* [Sidenav reducer](./sidenav-reducer.md)
+* [Sidenav Reducer](./sidenav-reducer.md)
 * [Create Store Instance](./new-up-store.md)
-* [Dispatch Actions and Subscribe to State](./dispatch-and-subscribe.md)
+* [Dispatch Actions and Subscribe to State](./dispatch-subscribe.md)
 * [Resorts JSON Server](./resorts-json-server.md)
 * [Resorts Actions](./resort-actions.md)
 * [Update Reducer with Resort Actions](./resort-reducer.md)
