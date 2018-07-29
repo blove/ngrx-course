@@ -45,7 +45,7 @@ export class Store {
     this.effects.forEach(effect => {
       effect(action)
         .pipe(filter(result => !!result))
-        .subscribe((action: Action) => this.dispatch(action));
+        .subscribe((a: Action) => this.dispatch(a));
     });
   }
 
