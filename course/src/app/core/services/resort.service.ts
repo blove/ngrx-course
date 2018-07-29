@@ -12,10 +12,6 @@ export class ResortService extends BaseService {
     super();
   }
 
-  getResorts(): Observable<Resort[]> {
-    return this.httpClient.get<Resort[]>(`${this.BASE_URL}/resorts`);
-  }
-
   search(q: string): Observable<Resort[]> {
     return this.httpClient.get<Resort[]>(`${this.BASE_URL}/resorts`, {
       params: new HttpParams().set('name_like', `^${q}`)

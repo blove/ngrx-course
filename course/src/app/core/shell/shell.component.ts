@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ObservableMedia } from '@angular/flex-layout';
-import { MatDialog } from '@angular/material';
 import { Title } from '@angular/platform-browser';
 import { SearchDialogComponent } from '@app/containers/search-dialog/search-dialog.component';
 import { sidenavIsOpen, State } from '@app/state';
@@ -8,6 +7,7 @@ import { HideSidenav, ShowSidenav } from '@app/state/sidenav/sidenav.actions';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+import { OpenDialog } from './../../state/dialog/dialog.actions';
 
 @Component({
   templateUrl: './shell.component.html',
@@ -17,7 +17,6 @@ export class ShellComponent implements OnInit {
   opened: Observable<boolean>;
 
   constructor(
-    public dialog: MatDialog,
     private titleService: Title,
     private media: ObservableMedia,
     private store: Store<State>
@@ -26,17 +25,6 @@ export class ShellComponent implements OnInit {
   ngOnInit() {
     this.opened = this.store.pipe(select(sidenavIsOpen));
   }
-
-  // logout() {
-  //   this.authenticationService
-  //     .logout()
-  //     .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
-  // }
-
-  // get username(): string | null {
-  //   const credentials = this.authenticationService.credentials;
-  //   return credentials ? credentials.username : null;
-  // }
 
   get isMobile(): boolean {
     return this.media.isActive('xs') || this.media.isActive('sm');
@@ -54,19 +42,20 @@ export class ShellComponent implements OnInit {
     this.store.dispatch(new ShowSidenav());
   }
 
+  openDialog() {
+    this.store.dispatch(
+      new OpenDialog(SearchDialogComponent, {
+        width: '320px'
+      })
+    );
+  }
+
   toggleSidenav() {
     this.opened.pipe(first()).subscribe(open => {
       if (open) {
         return this.closeSidenav();
       }
       this.openSidenav();
-    });
-  }
-
-  openDialog() {
-    //close sidenav
-    const dialogRef = this.dialog.open(SearchDialogComponent, {
-      width: '320px'
     });
   }
 }

@@ -36,18 +36,22 @@ This interface will be used to define the reducer functions associated with each
 
 ```javascript
 export interface ReducerMap {
-  [key: string]: Function;
+  \[key: string]: Function;
 }
 ```
+
+*Note*: Disregard the leading backslash. This is to work around an issue with Gitbook.
 
 Finally, create the `State` interface.
 This interface represents the state object.
 
 ```javascript
 export interface State {
-  [key: string]: any;
+  \[key: string]: any;
 }
 ```
+
+*Note*: Disregard the leading backslash. This is to work around an issue with Gitbook.
 
 ## `Store` Class
 

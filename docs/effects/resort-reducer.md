@@ -10,13 +10,13 @@ First, declare the `State` interface:
 export interface State {
   error: Error | null;
   loading: boolean;
-  resorts: Resort[];
+  searchResults: Resort[];
 }
 ```
 
 * The `error` property is either an `Error` object or `null`. We can use this to log the error and to indicate an error to the user.
 * The `loading` property is `boolean` value indicating if the search results are loading.
-* The `resorts` property is an array of `Resort` objects that are the result of the search.
+* The `searchResults` property is an array of `Resort` objects that are the result of the user's search.
 
 ## Initial State
 
@@ -25,7 +25,7 @@ Declare the `initialState` object:
 ```javascript
 export const initialState: State = {
   loading: false,
-  resorts: []
+  searchResults: []
 };
 ```
 
@@ -41,7 +41,7 @@ export function reducer(state = initialState, action: ResortActions): State {
         ...state,
         loading: true,
         error: null,
-        resorts: []
+        searchResults: []
       };
     case ResortActionTypes.SearchResortsFail:
       return {
@@ -54,7 +54,7 @@ export function reducer(state = initialState, action: ResortActions): State {
         ...state,
         error: null,
         loading: false,
-        resorts: action.resorts
+        searchResults: action.resorts
       };
     default:
       return state;
@@ -69,7 +69,7 @@ Finally, create projector functions that will be used in the selectors for the r
 ```javascript
 export const getError = (state: State) => state.error;
 export const getLoading = (state: State) => state.loading;
-export const getResorts = (state: State) => state.resorts;
+export const getSearchResults = (state: State) => state.searchResults;
 ```
 
 ## Declare Top-Level State Property
@@ -89,10 +89,12 @@ Then, add the new property to the `State` interface:
 import { State as ResortState } from './resort/resort.reducer';
 
 export interface State {
-  [Features.sidenav]: SidenavState;
-  [Features.resort]: ResortState;
+  \[Features.sidenav]: SidenavState;
+  \[Features.resort]: ResortState;
 }
 ```
+
+*Note*: Disregard the leading backslash. This is to work around an issue with Gitbook.
 
 ## Declare Reducer
 
