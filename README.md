@@ -45,8 +45,10 @@ Browse the API at: [https://localhost:3000](https://localhost:3000)
 * 01-simple-store-complete
 * 02-store
 * 02-store-complete
-* 03-effects
-* 03-effects-complete
+* 03-dialog-exercise
+* 03-dialog-exercise-complete
+* 04-testing
+* 04-testing-complete
 
 ## Copyright
 

@@ -131,13 +131,15 @@ Then, update the `State` interface and `reducers` map to use the enum value:
 
 ```javascript
 export interface State {
-  [Features.sidenav]: SidenavState;
+  \[Features.sidenav]: SidenavState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  [Features.sidenav]: sidenavReducer
+  \[Features.sidenav]: sidenavReducer
 };
 ```
+
+*Note*: Disregard the leading backslash. This is to work around an issue with Gitbook.
 
 **Pro Tip**: This provides little to no value now as the `ActionReducerMap` interface ensures the map contains the same keys as the `State` interface.
 However, we'll see the advantage to use the enum when we declare the top-level state property using `createFeatureSelector()`.

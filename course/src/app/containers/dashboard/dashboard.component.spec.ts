@@ -1,17 +1,21 @@
-import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from '@app/containers/dashboard/dashboard.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { NguiMapModule } from '@ngui/map';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
+  // todo: define store variable
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [SharedModule],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [
+        NguiMapModule,
+        // todo: import StoreModule
+        SharedModule
+      ]
     }).compileComponents();
   }));
 
@@ -19,9 +23,12 @@ describe('DashboardComponent', () => {
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    // todo: get store instance
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // todo: test ngOnInit
 });

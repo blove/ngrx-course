@@ -5,7 +5,7 @@
 export const environment = {
   google: {
     maps: {
-      apiKey: 'AIzaSyBDwbyfhmy6ywu_C-oY7m7eHosBCLdiAK8'
+      apiKey: 'API_KEY'
     }
   },
   production: false

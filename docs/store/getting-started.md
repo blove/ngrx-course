@@ -119,8 +119,11 @@ In order to display an embedded Google Map using the JavaScript library you must
 We'll be using the [Angular Google Maps](https://angular-maps.com/) library to easily display a Google Map:
 
 ```bash
-npm install @agm/core
-yarn add @agm/core
+npm install @ngui/map --save-prod
+npm install @types/googlemap -save-dev
+
+yarn add @ngui/map
+yarn add -@types/googlemap -D
 ```
 
 Update both the **src/environments/environment.ts** and **src/environments/environments.prod.ts** files with your API key:
@@ -135,18 +138,4 @@ export const environment = {
 }
 ```
 
-### Update `AppModule`
-
-Import the `AgmCoreModule` in the `AppModule`:
-
-```javascript
-@NgModule({
-  imports: [
-    AgmCoreModule.forRoot({
-      apiKey: environment.google.maps.apiKey
-    })
-  ]
-})
-export class AppModule {}
-
-```
+Replace the _API_KEY_ placeholder with your Maps JavaScript API key.

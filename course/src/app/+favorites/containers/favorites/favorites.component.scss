@@ -1,0 +1,28 @@
+:host {
+  background-color: #fff;
+
+  .banner { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 336px;
+    margin-top: 64px;
+    background: url('/assets/images/skiwelt.jpg') no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    h1 {
+      margin-top: 200px;
+      color: #fff;
+      text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+      font-size: 4rem;
+    }
+  }
+
+  .favorites {
+    mat-card {
+      margin-top: 300px;
+    }
+  }
+}

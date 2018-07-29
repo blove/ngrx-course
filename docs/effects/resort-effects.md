@@ -1,6 +1,6 @@
 # Resort Effects
 
-With the resort actions, reducer function and selectors declared we are now ready to create the `ResortEffects` class and the side effect for searching resorts using the API.
+With the resort actions, reducer function and selectors declared we are now ready to create the `ResortEffects` class with the side effect for searching resorts using the API.
 
 ## `ResortEffects` Class
 
