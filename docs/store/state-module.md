@@ -37,9 +37,7 @@ CREATE src/app/state/index.ts (359 bytes)
 UPDATE src/app/state/state.module.ts (433 bytes)
 ```
 
-## Update `AppModule`
-
-Finally, update the `AppModule` in order to import the `StateModule` using the `forRoot()` static method we defined:
+The **src/app/state/state/state.module.ts** file should look like:
 
 ```javascript
 import { metaReducers, reducers } from '@app/state';
@@ -52,6 +50,24 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : []
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class StateModule {}
+```
+
+## Update `AppModule`
+
+Finally, update the `AppModule` in **src/app/app.module.ts** and import the `StateModule`:
+
+```javascript
+@NgModule({
+  declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
+  imports: [
+    // code omitted
+
+    StateModule
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -113,4 +129,20 @@ export class StateModule {
     }
   }
 }
+```
+
+Then, update the `AppModule` to invoke the `forRoot()` static method:
+
+```javascript
+@NgModule({
+  declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
+  imports: [
+    // code omitted
+    
+    StateModule.forRoot()
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
 ```

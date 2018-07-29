@@ -5,7 +5,7 @@ Create selectors to:
 * Access the `resort` feature state.
 * Access the `error` object.
 * Access the `loading` boolean value.
-* Access the `resorts` array.
+* Access the `searchResults` array.
 
 ## Declare Feature Selector
 
@@ -30,5 +30,5 @@ import {
 
 export const resortError = createSelector(resortState, getError);
 export const resortIsLoading = createSelector(resortState, getLoading);
-export const resorts = createSelector(resortState, getResorts);
+export const searchResults = createSelector(resortState, getSearchResults);
 ```

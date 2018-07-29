@@ -9,6 +9,8 @@
 * [Resort Select](./resort-select.md)
 * [Resort Dispatch](./resort-dispatch.md)
 * [Select a Resort](./select-resort.md)
+* [Exercise 1: Dialog](./exercise-1-dialog.md)
+* [Exercise 2: Close Dialog and Set Zoom](./exercise-2-close-dialog-zoom.md)
 
 ## Goals
 

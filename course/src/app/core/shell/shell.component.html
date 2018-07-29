@@ -7,8 +7,11 @@
           <span>Dashboard</span>
         </a>
         <mat-divider></mat-divider>
-        <a mat-list-item (click)="openDialog() && isMobile && sidenav.close()">
+        <a mat-list-item (click)="openDialog() && isMobile && sidenav.close()" class="search">
           <span>Search</span>
+        </a>
+        <a mat-list-item routerLink="/favorites">
+          <span>Favorites</span>
         </a>
         <mat-divider></mat-divider>
       </mat-list>

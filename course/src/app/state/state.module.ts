@@ -5,6 +5,7 @@ import {
   SkipSelf
 } from '@angular/core';
 import { metaReducers, reducers } from '@app/state';
+import { DialogEffects } from '@app/state/dialog/dialog.effects';
 import { ResortEffects } from '@app/state/resort/resort.effects';
 import { environment } from '@env/environment';
 import { EffectsModule } from '@ngrx/effects';
@@ -14,7 +15,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({
   imports: [
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([ResortEffects]),
+    EffectsModule.forRoot([DialogEffects, ResortEffects]),
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ]
 })

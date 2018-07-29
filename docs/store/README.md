@@ -7,6 +7,7 @@
 * [Sidenav Selectors](./sidenav-selectors.md)
 * [Sidenav Select](./sidenav-select.md)
 * [Sidenav Dispatch](./sidenav-dispatch.md)
+* [Exercise: Map Zoom](./exercise-map-zoom.md)
 
 ## Goals
 

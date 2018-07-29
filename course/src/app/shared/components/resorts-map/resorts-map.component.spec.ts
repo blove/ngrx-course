@@ -1,5 +1,7 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { reducers } from '@app/state';
+import { StoreModule } from '@ngrx/store';
+import { NguiMapModule } from '@ngui/map';
 import { ResortsMapComponent } from './resorts-map.component';
 
 describe('ResortsMapComponent', () => {
@@ -9,7 +11,7 @@ describe('ResortsMapComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ResortsMapComponent],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [NguiMapModule, StoreModule.forRoot(reducers)]
     }).compileComponents();
   }));
 
