@@ -2,10 +2,17 @@ import { Resort } from '@app/models/resort.model';
 import { Action } from '@ngrx/store';
 
 export enum ResortActionTypes {
+  DeleteResort = '[Resort] Delete',
   SearchResorts = '[Resort] Search',
   SearchResortsFail = '[Resort] Search Fail',
   SearchResortsSuccess = '[Resort] Search Success',
   SelectResort = '[Resort] Select'
+}
+
+export class DeleteResort implements Action {
+  readonly type = ResortActionTypes.DeleteResort;
+
+  constructor(public payload: { id: string }) {}
 }
 
 export class SearchResorts implements Action {
@@ -29,10 +36,11 @@ export class SearchResortsSuccess implements Action {
 export class SelectResort implements Action {
   readonly type = ResortActionTypes.SelectResort;
 
-  constructor(public id: string) {}
+  constructor(public resort: Resort) {}
 }
 
 export type ResortActions =
+  | DeleteResort
   | SearchResorts
   | SearchResortsFail
   | SearchResortsSuccess

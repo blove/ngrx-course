@@ -1,26 +1,32 @@
 import { Resort } from '@app/models/resort.model';
+import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
 import { ResortActions, ResortActionTypes } from './resort.actions';
 
-export interface State {
+export interface State extends EntityState<Resort> {
   error?: Error | null;
   loading: boolean;
-  resorts: Resort[];
+  searchResults: Resort[];
   selectedResortId?: string;
 }
 
-export const initialState: State = {
+export const adapter: EntityAdapter<Resort> = createEntityAdapter<Resort>();
+
+export const initialState: State = adapter.getInitialState({
   loading: false,
-  resorts: []
-};
+  resorts: [],
+  searchResults: []
+});
 
 export function reducer(state = initialState, action: ResortActions): State {
   switch (action.type) {
+    case ResortActionTypes.DeleteResort:
+      return adapter.removeOne(action.payload.id, state);
     case ResortActionTypes.SearchResorts:
       return {
         ...state,
         loading: true,
         error: null,
-        resorts: []
+        searchResults: []
       };
     case ResortActionTypes.SearchResortsFail:
       return {
@@ -33,13 +39,13 @@ export function reducer(state = initialState, action: ResortActions): State {
         ...state,
         error: null,
         loading: false,
-        resorts: action.resorts
+        searchResults: action.resorts
       };
     case ResortActionTypes.SelectResort:
-      return {
+      return adapter.addOne(action.resort, {
         ...state,
-        selectedResortId: action.id
-      };
+        selectedResortId: action.resort.id
+      });
     default:
       return state;
   }
@@ -47,5 +53,5 @@ export function reducer(state = initialState, action: ResortActions): State {
 
 export const getError = (state: State) => state.error;
 export const getLoading = (state: State) => state.loading;
-export const getResorts = (state: State) => state.resorts;
+export const getSearchResults = (state: State) => state.searchResults;
 export const getSelectedResortId = (state: State) => state.selectedResortId;

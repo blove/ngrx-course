@@ -2,9 +2,9 @@
 
 Open the **src/app/containers/search-dialog/search-dialog.component.ts** file.
 
-## Subscribe to `valueChanges`
+## Dispatch `SearchResorts`
 
-Use the `valueChanges` observable on the `FormControl` to dispatch the `SearchResorts` action:
+Use the `valueChanges` observable on the `searchFormControl` to dispatch the `SearchResorts` action:
 
 ```javascript
 import { debounceTime, filter, takeUntil } from 'rxjs/operators';

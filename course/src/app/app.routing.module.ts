@@ -7,6 +7,10 @@ import { RouteService } from '@app/core/services/route.service';
 const routes: Routes = [
   RouteService.withShell([
     { path: 'dashboard', component: DashboardComponent },
+    {
+      path: 'favorites',
+      loadChildren: './+favorites/favorites.module#FavoritesModule'
+    },
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
   ]),
   { path: '**', component: PageNotFoundComponent }

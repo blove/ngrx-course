@@ -115,20 +115,3 @@ export const sidenavIsOpen = createSelector(sidenavState, (state: SidenavState) 
 ```
 
 **Pro Tip**: How you define the projector function is a matter of preference.
-
-<!-- When declaring a selector with multipe selectors, the `projector` function is invoked with many arguments respective of the selectors specified.
-For example, we might compose a selector with multiple arguments to access the selected resort within our application:
-
-```javascript
-export const resorts = createSelector(resortState, getResorts);
-
-export const selectedResortId = createSelector(resortState, getSelectedResortId);
-
-export const selectedResort = createSelector(
-  resorts,
-  selectedResortId,
-  (resorts: Resort[], selectedResortId: number) => resorts.find(resort => resort.id === selectedResortId)
-)
-```
-
-In the example above we specify two selector functions: `resorts` and `selectedResortId` -->
