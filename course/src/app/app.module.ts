@@ -1,4 +1,3 @@
-import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,9 +16,6 @@ import { ReactiveFormsModule } from '../../node_modules/@angular/forms';
 @NgModule({
   declarations: [AppComponent, DashboardComponent, PageNotFoundComponent],
   imports: [
-    AgmCoreModule.forRoot({
-      apiKey: environment.google.maps.apiKey
-    }),
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
