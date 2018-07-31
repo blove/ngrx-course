@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   resorts: Observable<Array<Resort>>;
   selectedResort: Observable<Resort>;
 
-  // inject the Ctore instance object
+  // inject the Store instance object
   constructor() {}
 
   ngOnInit() {
