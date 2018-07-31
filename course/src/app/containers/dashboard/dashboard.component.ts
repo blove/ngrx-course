@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   constructor(private store: Store<State>) {}
 
   ngOnInit() {
-    this.mapZoom = this.store.select(mapZoom);
+    this.mapZoom = this.store.pipe(select(mapZoom));
     this.resorts = this.store.pipe(select(resorts));
     this.selectedResort = this.store.pipe(select(selectedResort));
   }
