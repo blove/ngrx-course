@@ -5,7 +5,7 @@ export interface State {
 }
 
 export const initialState: State = {
-  zoom: 5
+  zoom: 10
 };
 
 export function reducer(state = initialState, action: MapAction): State {

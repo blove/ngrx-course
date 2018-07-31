@@ -1,7 +1,8 @@
-import { NO_ERRORS_SCHEMA } from '@angular/compiler/src/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DashboardComponent } from '@app/containers/dashboard/dashboard.component';
 import { SharedModule } from '@app/shared/shared.module';
+import { reducers } from '@app/state';
+import { StoreModule } from '@ngrx/store';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -10,8 +11,7 @@ describe('DashboardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [DashboardComponent],
-      imports: [SharedModule],
-      schemas: [NO_ERRORS_SCHEMA]
+      imports: [SharedModule, StoreModule.forRoot(reducers)]
     }).compileComponents();
   }));
 

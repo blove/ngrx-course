@@ -1,12 +1,17 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  ViewChild
+} from '@angular/core';
 import { Resort } from '@app/models/resort.model';
 import { State } from '@app/state';
-import { SetMapZoom } from '@app/state/map/map.actions';
 import { Store } from '@ngrx/store';
+import { NguiMapComponent } from '@ngui/map';
 
 interface Marker {
-  lat: number;
-  lng: number;
+  position: number[];
   title: string;
 }
 
@@ -21,30 +26,49 @@ export class ResortsMapComponent implements OnChanges {
   @Input() selectedResort: Resort;
   @Input() zoom: number;
 
-  lat = 39.8283;
-  lng = -98.5795;
+  bounds: google.maps.LatLngBounds;
+  map: google.maps.Map;
   markers: Marker[] = [];
+  @ViewChild(NguiMapComponent) nguiMapComponent: NguiMapComponent;
+  title: string;
 
   constructor(private store: Store<State>) {}
 
   ngOnChanges(simpleChanges: SimpleChanges) {
-    if (
-      simpleChanges.selectedResort &&
-      simpleChanges.selectedResort.currentValue
-    ) {
-      this.lat = Number(this.selectedResort.lat);
-      this.lng = Number(this.selectedResort.lng);
+    if (this.map && simpleChanges.zoom && simpleChanges.zoom.currentValue) {
+      this.map.setZoom(this.zoom);
     }
     if (simpleChanges.resorts && simpleChanges.resorts.currentValue) {
       this.markers = this.resorts.map(resort => ({
-        lat: Number(resort.lat),
-        lng: Number(resort.lng),
+        position: [Number(resort.lat), Number(resort.lng)],
         title: resort.name
       }));
     }
   }
 
-  onZoomChange(event: number) {
-    this.store.dispatch(new SetMapZoom(event));
+  onMapClick() {
+    this.nguiMapComponent.closeInfoWindow('infoWindow');
+  }
+
+  onMapReady(map: google.maps.Map) {
+    this.map = map;
+    this.bounds = new google.maps.LatLngBounds();
+    this.map.setZoom(this.zoom);
+  }
+
+  onMarkerClick(event) {
+    const marker = event.target;
+    this.title = event.target.getTitle();
+    this.nguiMapComponent.openInfoWindow('infoWindow', marker);
+  }
+
+  onMarkerInit(marker) {
+    this.bounds.extend(marker.getPosition());
+    this.map.setCenter(this.bounds.getCenter());
+    if (this.resorts.length === 1) {
+      this.map.setZoom(this.zoom);
+    } else {
+      this.map.fitBounds(this.bounds);
+    }
   }
 }
