@@ -2,46 +2,18 @@
 
 This is a 1-day course on NgRx.
 
-## Table of Contents
-
-* Introduction
-  * What is NgRx?
-  * What does it solve?
-  * Why use NgRx?
-* Fundamentals
-  * 3 Principles of Redux
-  * NgRx Architecture
-  * Actions
-  * Reducers
-  * Store
-  * Effects
-* A Simple Store
-  * Create a Store
-  * Dispatch an Action
-  * Select State
-* Getting Started with NgRx
-* UI State
-* Entities
-  * Create
-  * Read
-  * Update
-  * Delete
-* Router
-  * Binding
-  * Params
-
 ## Prequisites
 
 Skills:
 
-* Understanding of TypeScript and ES6.
-* Intermediate to advanced understanding of Angular.
-* Comfortable using command line and 
+- Understanding of TypeScript and ES6.
+- Intermediate to advanced understanding of Angular.
+- Comfortable using command line and
 
 Software:
 
-* npm or yarn
-* Code editor (VS Code recommended)
+- npm or yarn
+- Code editor (VS Code recommended)
 
 ## Setup
 
@@ -67,7 +39,6 @@ yarn start
 
 Browse the API at: [https://localhost:3000](https://localhost:3000)
 
-## Branches
+## Copyright
 
-* simple-store
-* simple-store-completed
+Copyright (c) 2019 LiveLoveApp, LLC
